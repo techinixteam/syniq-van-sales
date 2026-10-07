@@ -1,0 +1,9 @@
+<resources>
+    <!--
+      The LAUNCHER LABEL only. It is deliberately different from the React component name
+      ("SyniqVanSales", hardcoded in MainActivity.getMainComponentName() and app.json) — that one
+      is an identifier and must not carry a space; this one is what a van sales rep reads under
+      the icon.
+    -->
+    <string name="app_name">SYNIQ Van Sales</string>
+</resources>

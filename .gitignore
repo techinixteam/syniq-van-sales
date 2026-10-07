@@ -1,0 +1,119 @@
+# ══════════════════════════════════════════════════════════════════════════════════════════════
+# syniq-opr-app — .gitignore
+#
+# Android-only by design (plan §4.2), so this file carries no Xcode, CocoaPods or Ruby sections.
+# If an iOS target is ever added, add them then — an ignore rule for a platform that does not
+# exist only teaches the next reader that one does.
+#
+# ⚠ TWO RULES FROM loadindo-vendor ARE DELIBERATELY NOT COPIED. See "Not ignored, on purpose".
+# ══════════════════════════════════════════════════════════════════════════════════════════════
+
+# ── Dependencies ──────────────────────────────────────────────────────────────────────────────
+node_modules/
+.pnp/
+.pnp.js
+
+# ── Build output ──────────────────────────────────────────────────────────────────────────────
+dist/
+build/
+*.tsbuildinfo
+*.jsbundle
+
+# ── Metro ─────────────────────────────────────────────────────────────────────────────────────
+.metro-health-check*
+metro-cache/
+
+# ── Android ───────────────────────────────────────────────────────────────────────────────────
+android/.gradle/
+android/.idea/
+android/.kotlin/
+android/build/
+android/app/build/
+android/captures/
+android/local.properties
+android/*.iml
+.cxx/
+*.hprof
+*.apk
+*.aab
+
+# Signing material. `debug.keystore` is the shared, publicly-known debug key that ships with the
+# Android SDK and MUST stay tracked — without it every developer signs debug builds with a
+# different key and cannot upgrade over each other's installs.
+*.keystore
+*.jks
+*.p8
+*.p12
+*.key
+!android/app/debug.keystore
+
+# ── Secrets & environment ─────────────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.env
+
+# ── Testing ───────────────────────────────────────────────────────────────────────────────────
+coverage/
+.nyc_output/
+
+# ── Editors & tooling ─────────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+*~
+*.orig
+*.orig.*
+*.bak
+
+# ── Logs ──────────────────────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# ── Temp ──────────────────────────────────────────────────────────────────────────────────────
+*.tmp
+*.temp
+tmp/
+temp/
+
+# ── OS ────────────────────────────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+
+# ══════════════════════════════════════════════════════════════════════════════════════════════
+# NOT IGNORED, ON PURPOSE
+# ══════════════════════════════════════════════════════════════════════════════════════════════
+#
+# 1. `**/env.ts` — loadindo-vendor ignores this, and copying that here would be a real bug.
+#    It ignores it because ITS env.ts holds a live Google Maps API key. Ours holds a public base
+#    URL and a timeout, nothing secret, and it is an ordinary source file that the app will not
+#    compile without. An ignore rule that silently drops a tracked source file is exactly the
+#    class of mistake that cost this programme ~50 ghost migrations when `*.sql` was ignored in
+#    syniq-server. Secrets belong in `.env` (ignored above), never in a source file.
+#
+# 2. `package-lock.json` — committed. A handheld fleet must be reproducible build to build, and
+#    an RN dependency graph is not stable without the lock.
+#
+# 3. The GENERATED files are committed and must stay so:
+#      src/theme/tokens/colors.light.ts
+#      src/theme/tokens/colors.dark.ts
+#      src/theme/tokens/radius.ts
+#      src/authz/permissions.generated.ts
+#    Their generators (`npm run tokens:sync`, `npm run perms:sync`) read the SIBLING checkouts
+#    ../syniq-web and ../syniq-server, which a CI runner or a fresh clone will not have. Ignoring
+#    them would make this repo un-buildable anywhere those siblings are absent. The `:check`
+#    halves of the same scripts are what keep them honest.
+
+
+
+#

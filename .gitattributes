@@ -1,0 +1,18 @@
+# GENERATED files are compared BYTE-FOR-BYTE by `npm run tokens:check` / `brand:check` /
+# `perms:check`, and the generators write LF. With `core.autocrlf=true` (the Windows default) a
+# checkout turns them into CRLF and every check reports STALE on an untouched tree — so they are
+# pinned to LF here, whatever the platform.
+src/theme/tokens/colors.light.ts text eol=lf
+src/theme/tokens/colors.dark.ts text eol=lf
+src/theme/tokens/radius.ts text eol=lf
+src/components/brand/logo-paths.ts text eol=lf
+src/authz/permissions.generated.ts text eol=lf
+android/app/src/main/res/drawable/ic_syniq_mark.xml text eol=lf
+android/app/src/main/res/drawable/ic_launcher_foreground.xml text eol=lf
+
+# A shell script with CRLF fails on macOS/Linux with "bad interpreter".
+android/gradlew text eol=lf
+
+*.jar binary
+*.keystore binary
+*.png binary

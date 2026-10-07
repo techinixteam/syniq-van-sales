@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SyniQ brand colours, DARK. Mirrors the dark data-theme block in syniq-web.
+
+  This file is why the app no longer opens on a black screen: Theme.AppCompat.DayNight was
+  resolving its default window background to near-black on a night-mode device, and nothing painted
+  over it until the JS bundle had loaded, which over a USB Metro connection is seconds.
+-->
+<resources>
+    <color name="syniq_canvas">#1a1c20</color>
+    <color name="syniq_logo">#2f86d8</color>
+    <color name="syniq_icon_background">#0f766e</color>
+</resources>

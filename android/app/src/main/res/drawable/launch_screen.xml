@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The launch window: the brand canvas with the SyniQ mark centred on it.
+
+  Set as `android:windowBackground`, so Android paints it the instant the activity is created —
+  before React Native exists. It is what the user looks at while the JS bundle loads, and on a
+  debug build served over USB that is not a brief flicker.
+
+  A vector in a layer-list needs an explicit width/height on the <item> (API 23+; this app's
+  minSdk is 24). Without them the drawable stretches to fill the window.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/syniq_canvas" />
+    <item
+        android:width="160dp"
+        android:height="101dp"
+        android:drawable="@drawable/ic_syniq_mark"
+        android:gravity="center" />
+</layer-list>

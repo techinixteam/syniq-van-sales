@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SyniQ brand colours, LIGHT.
+
+  These mirror the theme block in `syniq-web/src/styles/globals.css` by hand rather than by
+  generator, because the NATIVE launch window needs them — and it paints before any JavaScript
+  exists to read the generated palette. Keep three files in step: this one,
+  `values-night/colors.xml`, and `src/theme/tokens/colors.*.ts`.
+
+  (Note for editors: XML comments may not contain a double hyphen, so the CSS custom-property
+  names are given below without their leading dashes.)
+-->
+<resources>
+    <!-- color-canvas. The window background from launch until React paints its first frame. -->
+    <color name="syniq_canvas">#f8fafc</color>
+    <!-- color-logo. The cobalt of the SyniQ mark, deliberately distinct from the brand blue. -->
+    <color name="syniq_logo">#0a66b3</color>
+    <!-- Launcher-icon ground. TEAL, not the Operations app's cobalt, so a rep who carries both apps tells them apart at a glance; the white mark stays legible under any launcher mask. (Adaptive icons, Android 8+; the legacy mipmap PNGs below API 26 are the shared cobalt.) -->
+    <color name="syniq_icon_background">#0f766e</color>
+</resources>
